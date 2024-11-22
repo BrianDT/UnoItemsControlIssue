@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Vssl.Samples.Framework</RootNamespace>
+    <AssemblyName>Vssl.Samples.Framework.ViewModels</AssemblyName>
+    <CodeAnalysisRuleSet>..\Vssl.ruleset</CodeAnalysisRuleSet>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Helpers\Framework.Helpers.csproj" />
+    <ProjectReference Include="..\Framework.ViewModelUtilities\Framework.ViewModelUtilities.csproj" />
+    <ProjectReference Include="..\FrameworkInterfaces\FrameworkInterfaces.csproj" />
+  </ItemGroup>
+</Project>
