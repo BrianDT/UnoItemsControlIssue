@@ -7,7 +7,7 @@ Reported as a Uno Platform issue here:
 Issue Title
 Publishing trimmed caused exception when binding to an ObservableCollection
 Typical call stack
-'''
+```
  	WinRT.Runtime.dll!WinRT.TypeExtensions.GetAbiToProjectionVftblPtr(System.Type value)	Unknown
  	WinRT.Runtime.dll!WinRT.ComWrappersSupport.GetInterfaceTableEntries.__AddInterfaceToVtable|16_1(System.Type value, System.Collections.Generic.List<System.Runtime.InteropServices.ComWrappers.ComInterfaceEntry> value, bool value)	Unknown
  	WinRT.Runtime.dll!WinRT.ComWrappersSupport.GetInterfaceTableEntries.__GetInterfaceTableEntriesForJitEnvironment|16_2(System.Type value, System.Collections.Generic.List<System.Runtime.InteropServices.ComWrappers.ComInterfaceEntry> value, bool value)	Unknown
@@ -39,7 +39,8 @@ Typical call stack
  	[Managed to Native Transition]	
  	Microsoft.WinUI.dll!ABI.Microsoft.UI.Xaml.IApplicationStaticsMethods.Start(WinRT.IObjectReference value, Microsoft.UI.Xaml.ApplicationInitializationCallback value)	Unknown
  	Vssl.UnoItemsControlIssue.dll!Vssl.UnoItemsControlIssue.Program.Main(string[] value) Line 26	C#
-'''
+```
+
 Current behavior
 Trimming the release build on publication causes a binding failure on itemcontrols when the datacontext is set on the page.
 
@@ -48,10 +49,11 @@ The release build should execute correctly in the same way that the debug build 
 
 Workaround
 If you have a  win-AnyCPU.pubxml Publisg profile file, set PublishTrimmed to false for all build types.
-‘’’<!--<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
+```
+<!--<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
 <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>-->
         <PublishTrimmed>False</PublishTrimmed>
-‘’’
+```
 
 
 Reproduces binding issues when binding a ObservableCollection as the source of an ItemsControl
