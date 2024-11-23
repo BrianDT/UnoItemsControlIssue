@@ -5,7 +5,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Vssl.Samples.ViewModelInterfaces;
 using Vssl.Samples.ViewInterfaces;
-using Vssl.Framework.DIUtilities;
+using Vssl.Samples.Framework;
 
 /// <summary>
 /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,12 +26,11 @@ public sealed partial class MainPage : Page, IMainPage
         var viewModel = DependencyHelper.Resolve<IMainViewModel>();
         this.DataContext = viewModel;
 
-        /*
         this.Loaded += (s, e) =>
         {
-            this.VM.SetCollection(this.itemView.VM);
+            this.isloaded = true;
+            ////this.VM.SetCollection(this.itemView.VM);
         };
-        */
     }
 
     #region [ Properties ]

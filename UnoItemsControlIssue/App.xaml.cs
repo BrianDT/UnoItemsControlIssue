@@ -9,7 +9,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Uno.Resizetizer;
 using Uno.UI;
 using Vssl.UnoItemsControlIssue.Initialisation;
-using Vssl.Framework.DIUtilityInterfaces;
+using Vssl.Samples.FrameworkInterfaces;
 
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.

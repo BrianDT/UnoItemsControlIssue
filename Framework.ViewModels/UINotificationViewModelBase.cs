@@ -3,8 +3,6 @@ namespace Vssl.Samples.Framework.ViewModels;
 
 using System.Collections.Generic;
 using System;
-using Vssl.VisualFramework.Common;
-using Vssl.VisualFramework.ViewModelInterfaces;
 using System.Text;
 using System.Diagnostics;
 using Vssl.Samples.FrameworkInterfaces;

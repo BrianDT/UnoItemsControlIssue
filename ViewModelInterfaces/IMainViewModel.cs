@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
-using Vssl.VisualFramework.ViewModelInterfaces;
+using Vssl.Samples.FrameworkInterfaces;
 
 /// <summary>
 /// The view model for the main page
@@ -19,9 +19,9 @@ public interface IMainViewModel : IUINotificationViewModelBase
     IThingCollection ThingSet { get; }
 
     /// <summary>
-    /// Gets the collection of craters
+    /// Gets the collection of things
     /// </summary>
-    ObservableCollection<IThing> Craters { get; }
+    ObservableCollection<IThing> Things { get; }
 
     /// <summary>
     /// Called when the page size changes

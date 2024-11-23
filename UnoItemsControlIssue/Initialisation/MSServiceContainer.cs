@@ -10,15 +10,14 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 #endif
 using Microsoft.Extensions.DependencyInjection;
-using Vssl.Framework.DIUtilityInterfaces;
-using VSSL.Framework.MSExtFacade;
+using Vssl.Samples.Framework;
+using Vssl.Samples.Framework.MSExtFacade;
+using Vssl.Samples.FrameworkInterfaces;
 using Vssl.Samples.ViewModelInterfaces;
 using Vssl.Samples.ViewModels;
-using Vssl.VisualFramework.ViewModelHelpers;
-using Vssl.VisualFramework.ViewModelInterfaces;
 
 /// <summary>
-/// Dependepcy injection manager
+/// Microsoft extensions dependepcy injection initialisation
 /// </summary>
 public class MSServiceContainer
 {

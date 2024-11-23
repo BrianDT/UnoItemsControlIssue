@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Helpers\Framework.Helpers.csproj" />
     <ProjectReference Include="..\ViewModelInterfaces\ViewModelInterfaces.csproj" />
   </ItemGroup>
 

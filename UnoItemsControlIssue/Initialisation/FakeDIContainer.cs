@@ -1,37 +1,21 @@
-// <copyright file="MSExtDI.cs" company="Visual Software Systems Ltd.">Copyright (c) 2017, 2019 All rights reserved</copyright>
-
-namespace Vssl.Samples.Framework.MSExtFacade;
+// <copyright file="FakeDIContainer.cs" company="Visual Software Systems Ltd.">Copyright (c) 2024 All rights reserved</copyright>
+namespace Vssl.UnoItemsControlIssue.Initialisation;
 
 using System;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Vssl.Samples.Framework;
 using Vssl.Samples.FrameworkInterfaces;
+using Vssl.Samples.ViewModelInterfaces;
+using Vssl.Samples.ViewModels;
 
 /// <summary>
-/// A Microsoft Extensions Dependency Injections implementation of the dependency injection resolution interface
+/// A Fake dependency injection initialisation
 /// </summary>
-public class MSExtDI : IDependencyResolver
+public class FakeDIContainer : IDependencyResolver
 {
     /// <summary>
-    /// The service provider
+    /// The interface to the UI Dispatcher facade.
     /// </summary>
-    private IServiceProvider serviceProvider;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MSExtDI" /> class.
-    /// </summary>
-    public MSExtDI()
-    {
-    }
-
-    /// <summary>
-    /// Configure the service provider.
-    /// </summary>
-    /// <param name="serviceProvider">The service provider</param>
-    public void Configure(IServiceProvider serviceProvider)
-    {
-        this.serviceProvider = serviceProvider;
-    }
+    private IDispatchOnUIThread uiDispatcher;
 
     /// <summary>
     /// Gets the type mapping from the unity container
@@ -41,7 +25,7 @@ public class MSExtDI : IDependencyResolver
     public InterfaceType Resolve<InterfaceType>()
         where InterfaceType : class
     {
-        return this.serviceProvider.GetRequiredService<InterfaceType>();
+        return (InterfaceType)(object)this.Resolve(typeof(InterfaceType));
     }
 
     /// <summary>
@@ -51,7 +35,22 @@ public class MSExtDI : IDependencyResolver
     /// <returns>The mapped type</returns>
     public object Resolve(Type interfaceType)
     {
-        return this.serviceProvider.GetRequiredService(interfaceType);
+        if (interfaceType == typeof(IDispatchOnUIThread))
+        {
+            if (this.uiDispatcher == null)
+            {
+                this.uiDispatcher = new UIDispatcher();
+            }
+
+            return this.uiDispatcher;
+        }
+        else if (interfaceType == typeof(IThingCollection))
+        {
+            var uiDispatcher = this.Resolve<IDispatchOnUIThread>();
+            return new ThingCollection(uiDispatcher) as IThingCollection;
+        }
+
+        throw new System.Exception("Type unknown");
     }
 
     /// <summary>
@@ -85,12 +84,17 @@ public class MSExtDI : IDependencyResolver
     /// <returns>The mapped type</returns>
     public Type GetMappedType(Type interfaceType)
     {
-        if (this.serviceProvider != null)
-        {
-            return this.serviceProvider.GetService(interfaceType)?.GetType();
-        }
+        throw new NotImplementedException();
+    }
 
-        return null;
+    /// <summary>
+    /// Gets the registered interface type from the container given the mapped object type.
+    /// </summary>
+    /// <param name="mappedType">The mapped object type</param>
+    /// <returns>The registered interface type</returns>
+    public Type GetRegisteredType(Type mappedType)
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -100,13 +104,6 @@ public class MSExtDI : IDependencyResolver
     /// <returns>True if mapped</returns>
     public bool IsMapped(Type interfaceType)
     {
-        if (this.serviceProvider != null)
-        {
-            var serviceProviderIsService = this.serviceProvider.GetService<IServiceProviderIsService>();
-
-            return serviceProviderIsService.IsService(interfaceType);
-        }
-
-        return false;
+        throw new NotImplementedException();
     }
 }

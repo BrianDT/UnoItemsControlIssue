@@ -1,14 +1,13 @@
 // <copyright file="BindableBase.cs" company="Visual Software Systems Ltd.">Copyright (c) 2013 All rights reserved</copyright>
 
-namespace Vssl.VisualFramework.Common;
+namespace Vssl.Samples.Framework.ViewModels;
 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-
-using Vssl.VisualFramework.CommonInterfaces;
+using Vssl.Samples.FrameworkInterfaces;
 
 /// <summary>
 /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.

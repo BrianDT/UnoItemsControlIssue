@@ -26,8 +26,8 @@
       <controls:ItemControl x:Name="itemView" Grid.Row="2" />-->
 
       <Grid Grid.Row="3" SizeChanged="OnDrawingSurfaceSizeChanged">
-        <!--Craters-->
-        <ItemsControl ItemsSource="{x:Bind VM.Craters, Mode=OneWay}">
+        <!--Things-->
+        <ItemsControl ItemsSource="{x:Bind VM.Things, Mode=OneWay}">
           <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
               <StackPanel />
@@ -36,18 +36,11 @@
           <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="data:IThing">
               <Grid>
-                <!--<aggSprites2:Crater/>-->
-                <!--Diagnostic-->
                 <Rectangle Width="20" Height="20" Fill="Red" Margin="5"
                          StrokeThickness="1" Stroke="Black"/>
               </Grid>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
-          <!--<ItemsControl.ItemsPanel>
-              <ItemsPanelTemplate>
-                  <Canvas/>
-              </ItemsPanelTemplate>
-          </ItemsControl.ItemsPanel>-->
         </ItemsControl>
 
       </Grid>

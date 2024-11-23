@@ -50,6 +50,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" VersionOverride="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +60,7 @@
     <ProjectReference Include="..\Framework.ViewModels\Framework.ViewModels.csproj" />
     <ProjectReference Include="..\Framework.ViewModelUtilities\Framework.ViewModelUtilities.csproj" />
     <ProjectReference Include="..\FrameworkInterfaces\FrameworkInterfaces.csproj" />
+    <ProjectReference Include="..\MSExtFacade\MSExtFacade.csproj" />
     <ProjectReference Include="..\ViewInterfaces\ViewInterfaces.csproj" />
     <ProjectReference Include="..\ViewModelInterfaces\ViewModelInterfaces.csproj" />
     <ProjectReference Include="..\ViewModels\ViewModels.csproj" />

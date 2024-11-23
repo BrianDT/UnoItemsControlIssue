@@ -1,3 +1,4 @@
+// <copyright file="ThingCollection.cs" company="Visual Software Systems Ltd.">Copyright (c) 2024 All rights reserved</copyright>
 namespace Vssl.Samples.ViewModels;
 
 using System;
@@ -7,10 +8,13 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vssl.Samples.Framework.ViewModels;
+using Vssl.Samples.FrameworkInterfaces;
 using Vssl.Samples.ViewModelInterfaces;
-using Vssl.VisualFramework.ViewModelInterfaces;
-using Vssl.VisualFramework.ViewModels;
 
+/// <summary>
+/// A coillection of thing items
+/// </summary>
 public class ThingCollection : UINotificationViewModelBase, IThingCollection
 {
     /// <summary>
@@ -27,8 +31,14 @@ public class ThingCollection : UINotificationViewModelBase, IThingCollection
         }
     }
 
+    /// <summary>
+    /// Gets the collection of things.
+    /// </summary>
     public ObservableCollection<IThing> Things { get; private set; }
 
+    /// <summary>
+    /// Add a thing.
+    /// </summary>
     public void AddItems()
     {
         this.Things.Add(new ThingItem(this.UIDispatcher, 1));

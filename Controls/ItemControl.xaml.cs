@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Vssl.Framework.DIUtilities;
+using Vssl.Samples.Framework;
 using Vssl.Samples.ViewModelInterfaces;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236

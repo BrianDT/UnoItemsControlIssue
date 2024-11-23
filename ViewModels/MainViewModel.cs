@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using Vssl.Samples.Framework.ViewModels;
+using Vssl.Samples.FrameworkInterfaces;
 using Vssl.Samples.ViewModelInterfaces;
-using Vssl.VisualFramework.ViewModelInterfaces;
-using Vssl.VisualFramework.ViewModels;
 
 /// <summary>
 /// The view model for the main page
@@ -22,7 +22,7 @@ public class MainViewModel : UINotificationViewModelBase, IMainViewModel
     public MainViewModel(IDispatchOnUIThread uiDispatcher)
         : base(uiDispatcher)
     {
-        this.Craters = new ObservableCollection<IThing>();
+        this.Things = new ObservableCollection<IThing>();
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ public class MainViewModel : UINotificationViewModelBase, IMainViewModel
     public IThingCollection ThingSet { get; private set; }
 
     /// <summary>
-    /// Gets the collection of craters
+    /// Gets the collection of things
     /// </summary>
-    public ObservableCollection<IThing> Craters { get; private set; }
+    public ObservableCollection<IThing> Things { get; private set; }
 
     /// <summary>
     /// Called when the page size changes

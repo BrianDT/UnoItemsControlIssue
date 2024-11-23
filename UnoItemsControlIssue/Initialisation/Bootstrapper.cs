@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Vssl.Samples.Framework;
 using Vssl.Samples.FrameworkInterfaces;
-using Vssl.VisualFramework.ViewModelInterfaces;
 
 /// <summary>
 /// Dependepcy injection manager
